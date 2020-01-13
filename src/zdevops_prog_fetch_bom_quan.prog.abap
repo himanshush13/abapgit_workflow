@@ -4,3 +4,5 @@
 *&
 *&---------------------------------------------------------------------*
 REPORT zdevops_prog_fetch_bom_quan.
+
+INCLUDE zdevops_fetch_bom_quan_top.
