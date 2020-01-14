@@ -15,5 +15,5 @@ TYPES: BEGIN OF ty_bom_det,
          stlan TYPE  stlan,
          antxt TYPE  antxt,
        END OF ty_bom_det,
-       tty_bom_det TYPE SORTED TABLE OF ty_bom_det WITH NON-UNIQUE KEY matnr.
+       tty_bom_det TYPE TABLE OF ty_bom_det WITH NON-UNIQUE KEY matnr.
 DATA: lt_bom_det TYPE tty_bom_det.

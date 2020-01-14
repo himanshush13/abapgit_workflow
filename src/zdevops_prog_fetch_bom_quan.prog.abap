@@ -17,3 +17,7 @@ START-OF-SELECTION.
 *-- Fetch BOM Details of Material 1
   PERFORM f_fetch_bom_usage USING p_mat2
                             CHANGING lt_bom_det.
+
+END-OF-SELECTION.
+*- Display
+  PERFORM f_display CHANGING lt_bom_det.
