@@ -12,9 +12,27 @@
    </PROGDIR>
    <TPOOL>
     <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Material Number</ENTRY>
+     <LENGTH>25</LENGTH>
+    </item>
+    <item>
      <ID>R</ID>
      <ENTRY>Program to call CDS</ENTRY>
      <LENGTH>19</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MAT1</KEY>
+     <ENTRY>Material 1</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MAT2</KEY>
+     <ENTRY>Material 2</ENTRY>
+     <LENGTH>18</LENGTH>
     </item>
    </TPOOL>
   </asx:values>
