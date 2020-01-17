@@ -11,37 +11,40 @@
 *&---------------------------------------------------------------------*
 *       Fetch BOM Usage by Material Number
 *----------------------------------------------------------------------*
-FORM f_fetch_bom_usage USING    fp_mat TYPE matnr
+FORM f_fetch_bom_usage USING    fp_mat TYPE cfb_t_matnr_range
                        CHANGING ft_bom_det TYPE tty_bom_det.
 
   DATA: lv_matnr TYPE matnr.
-  lv_matnr = fp_mat.
 
-  CALL FUNCTION 'CONVERSION_EXIT_MATN1_INPUT'
-    EXPORTING
-      input        = lv_matnr
-    IMPORTING
-      output       = lv_matnr
-    EXCEPTIONS
-      length_error = 1
-      OTHERS       = 2.
-  IF sy-subrc <> 0.
+  LOOP AT fp_mat ASSIGNING FIELD-SYMBOL(<fs_matnr>).
+    lv_matnr = <fs_matnr>-low.
+    CALL FUNCTION 'CONVERSION_EXIT_MATN1_INPUT'
+      EXPORTING
+        input        = lv_matnr
+      IMPORTING
+        output       = lv_matnr
+      EXCEPTIONS
+        length_error = 1
+        OTHERS       = 2.
+    IF sy-subrc <> 0.
 * Implement suitable error handling here
-  ENDIF.
+    ENDIF.
 
-  SELECT matnr,
-         maktx,
-         mtart,
-         mtbez,
-         menge,
-         meins,
-         stlan,
-         antxt
-         FROM zdevops_cds_c_fetch_bom_quan( p_matnr = @lv_matnr )
-         APPENDING TABLE @ft_bom_det.
-  IF sy-subrc EQ 0.
-    SORT ft_bom_det BY matnr.
-  ENDIF.
+    SELECT matnr,
+           maktx,
+           mtart,
+           mtbez,
+           menge,
+           meins,
+           stlan,
+           antxt
+           FROM zdevops_cds_c_fetch_bom_quan( p_matnr = @lv_matnr )
+           APPENDING TABLE @ft_bom_det.
+    IF sy-subrc EQ 0.
+      SORT ft_bom_det BY matnr.
+    ENDIF.
+
+  ENDLOOP.
 
 ENDFORM. " F_FETCH_BOM_USAGE
 *&---------------------------------------------------------------------*

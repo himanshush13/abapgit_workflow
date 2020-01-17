@@ -24,15 +24,10 @@
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_MAT1</KEY>
-     <ENTRY>Material 1</ENTRY>
-     <LENGTH>18</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>P_MAT2</KEY>
-     <ENTRY>Material 2</ENTRY>
-     <LENGTH>18</LENGTH>
+     <KEY>S_MATNR</KEY>
+     <ENTRY>.</ENTRY>
+     <LENGTH>9</LENGTH>
+     <SPLIT>D</SPLIT>
     </item>
    </TPOOL>
   </asx:values>
