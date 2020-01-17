@@ -21,19 +21,20 @@ FORM f_fetch_bom_usage USING    fp_mat TYPE matnr
     EXPORTING
       input        = lv_matnr
     IMPORTING
-      output       = lv_matnr.
-*    EXCEPTIONS
-*      length_error = 1
-*      OTHERS       = 2.
-*  IF sy-subrc <> 0.
-** Implement suitable error handling here
-*  ENDIF.
+      output       = lv_matnr
+    EXCEPTIONS
+      length_error = 1
+      OTHERS       = 2.
+  IF sy-subrc <> 0.
+* Implement suitable error handling here
+  ENDIF.
 
   SELECT matnr,
          maktx,
          mtart,
          mtbez,
          menge,
+         meins,
          stlan,
          antxt
          FROM zdevops_cds_c_fetch_bom_quan( p_matnr = @lv_matnr )
