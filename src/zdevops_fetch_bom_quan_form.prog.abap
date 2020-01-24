@@ -14,7 +14,9 @@
 FORM f_fetch_bom_usage USING    fp_mat TYPE cfb_t_matnr_range
                        CHANGING ft_bom_det TYPE tty_bom_det.
 
+
   DATA: lv_matnr TYPE matnr.
+
 
   LOOP AT fp_mat ASSIGNING FIELD-SYMBOL(<fs_matnr>).
     lv_matnr = <fs_matnr>-low.
@@ -27,7 +29,7 @@ FORM f_fetch_bom_usage USING    fp_mat TYPE cfb_t_matnr_range
         length_error = 1
         OTHERS       = 2.
     IF sy-subrc <> 0.
-* Implement suitable error handling here
+* Implement suitable error handling here!!
     ENDIF.
 
     SELECT matnr,
