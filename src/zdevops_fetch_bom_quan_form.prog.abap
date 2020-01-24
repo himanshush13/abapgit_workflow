@@ -9,7 +9,7 @@
 *&---------------------------------------------------------------------*
 *&      Form  F_FETCH_BOM_USAGE
 *&---------------------------------------------------------------------*
-*       Fetch BOM Usage by Material No.
+*       Fetch BOM Usage by Material Number.
 *----------------------------------------------------------------------*
 FORM f_fetch_bom_usage USING    fp_mat TYPE cfb_t_matnr_range
                        CHANGING ft_bom_det TYPE tty_bom_det.
